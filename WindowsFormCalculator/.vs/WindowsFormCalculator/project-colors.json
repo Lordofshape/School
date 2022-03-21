@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "52b5dc33-e3ef-4d60-801e-9490f880e88d": {
+      "ProjectGuid": "52b5dc33-e3ef-4d60-801e-9490f880e88d",
+      "DisplayName": "BasicWinShapeCalculator",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
