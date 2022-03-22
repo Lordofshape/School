@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/P01_SalesDatabase/Sales/obj
+/P01_SalesDatabase/Sales/bin
