@@ -1,0 +1,12 @@
+   table,
+   tr,
+   th,
+   td {
+       border: 1px solid blue;
+   }
+   
+   th,
+   td {
+       text-align: right;
+       padding: 1px;
+   }
