@@ -1,6 +1,8 @@
 ﻿namespace P01_Chushka.Data.Models
 {
-    public class Role
+    public enum Role
     {
+        Admin = 1,
+        User = 2,
     }
 }
