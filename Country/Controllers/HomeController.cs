@@ -1,14 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Country.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using P01_Chushka.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace P01_Chushka.Controllers
+namespace Country.Controllers
 {
     public class HomeController : Controller
     {
@@ -23,12 +17,12 @@ namespace P01_Chushka.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "User")]
+
         public IActionResult Privacy()
         {
             return View();
         }
-        
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
