@@ -1,17 +1,19 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project_21b
+﻿namespace ShopingCar
 {
-    public class Car
+    public  class Car
     {
 
         private string brand;
         private int year;
         private int millage;
         private double value;
+        public Car(string brand,int year,int millage,double value)
+        {
+            this.brand = brand;
+            this.year = year;
+            this.millage = millage;
+            this.value = value;
+        }
 
         public string Brand
         {
@@ -56,7 +58,7 @@ namespace Project_21b
 
         public override string ToString()
         {
-            return $"";
+            return $"{this.Brand}: {this.millage} km, {GetPrice():f2}";
         }
     }
 }

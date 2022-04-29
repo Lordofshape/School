@@ -1,48 +1,56 @@
-﻿using ShopingCar;
-using System;
-using System.IO;
-
-namespace Project_21b
+﻿namespace ShopingCar
 {
+    using System;
+    using System.IO;
     class Program
     {
+
         static void Main(string[] args)
         {
 
-
-            
-            
-
-           
-            
-
-
-
-
-            //DirectoryInfo[] cDirs = new DirectoryInfo(@"c:\").GetDirectories();             
-            //Write each directory name to a file.
-            /*using (StreamWriter sw = new StreamWriter("text1.txt"))
+            string path = @"C:\Users\metko\source\repos\Medikko\School\ProjectNineClass\ShopingCar\data.txt.TXT";
+            List<Truck> trucks = new List<Truck>();
+            List<Car> cars = new List<Car>();
+            using (StreamReader reader = new StreamReader(path))
             {
-                foreach (DirectoryInfo dir in cDirs)
-                { sw.WriteLine(dir.Name); }
+                string[] input = reader.ReadToEnd().Split(new char[] { ' ', '\r', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < input.Length; i += 5)
+                {
+                    int type = int.Parse(input[i]);
+                    if (type == 1)
+                    {
+                        string carBrand = input[i + 1];
+                        int year = int.Parse(input[i + 2]);
+                        int milleage = int.Parse(input[i + 3]);
+                        double value = double.Parse(input[i + 4]);
+                        Car car = new Car(carBrand, year, milleage, value);
+                        cars.Add(car);
+                    }
+                    else if (type == 2)
+                    {
+                        string truckBrand = input[i + 1];
+                        int year = int.Parse(input[i + 2]);
+                        int milleage = int.Parse(input[i + 3]);
+                        double value = double.Parse(input[i + 4]);
+                        int tonnage = int.Parse(input[i + 5]);
+                        i++;
+                        Truck truck = new Truck(truckBrand, year, milleage, value, tonnage);
+                        trucks.Add(truck);
+                    }
+                }
             }
-            string line = ""; using (StreamReader sr = new StreamReader("text1.txt"))
+            string outputPath = @"C:\Users\metko\source\repos\Medikko\School\ProjectNineClass\ShopingCar\Output.txt";
+            using (StreamWriter writer = new StreamWriter(outputPath))
             {
-                while
-                 ((line = sr.ReadLine()) != null)
-                { Console.WriteLine(line); }
-            }*/
-            /* int s = int.Parse(Console.ReadLine());
-             if (s==1)
-             {
-                 Car car1 = new Car() { Brand="Audi", Value = 30000, Year = 2016, Millage=10000 };
-                 Console.WriteLine($"{car1.Brand}: {car1.Millage} km, {car1.GetPrice} ");
-             }
-             else if (s==2)
-             {
-                 Truck truck1 = new Truck() {  Brand="Volvo", Value = 100000, Year = 2006, Millage=10000, Tonnage=14 };
-                 Console.WriteLine($"{truck1.Brand}: {truck1.Millage} km, {truck1.GetPrice} ");
-             }*/
+                foreach (var truck in trucks)
+                {
+                    writer.WriteLine(truck);
+                }
+                foreach (var car in cars)
+                {
+                    writer.WriteLine(car);
+                }
+            }
         }
     }
 }
